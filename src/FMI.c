@@ -206,7 +206,7 @@ void FMIAppendToLogMessageBuffer(FMIInstance* instance, const char* format, ...)
 
     } else {
 
-        while (instance->logMessageBufferSize < instance->logMessageBufferPosition + length) {
+        while (instance->logMessageBufferSize <= instance->logMessageBufferPosition + length) {
             instance->logMessageBufferSize *= 2;
         }
 
@@ -319,7 +319,7 @@ void FMIAppendArrayToLogMessageBuffer(FMIInstance* instance, const void* values,
 
         } else {
 
-            while (instance->logMessageBufferSize < instance->logMessageBufferPosition + requiredCharacters) {
+            while (instance->logMessageBufferSize <= instance->logMessageBufferPosition + requiredCharacters) {
                 instance->logMessageBufferSize *= 2;
             }
 
